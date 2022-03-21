@@ -1,7 +1,7 @@
 COMPILER = python3
 FLAGS = 
 FILES = 1.py
-DIR = assignment00
+DIR = assignment02
 
 all: main
 
