@@ -1,7 +1,9 @@
 COMPILER = python3
 FLAGS = 
 FILES = 1.py
-DIR = assignment02
+DIR = assignment03
+# FILES = zoombot.py
+# DIR = zoombot
 
 all: main
 
@@ -9,6 +11,6 @@ main: $(DIR)/$(FILES)
 	$(COMPILER) $(FLAGS) $^
 
 clean:
-	rm -rf __pycache__
+	rm -rf $(DIR)/__pycache__
 
 .PHONY: clean all

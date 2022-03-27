@@ -7,11 +7,16 @@ from selenium.webdriver.common.keys import Keys
 # Configures the time set up for hours and minutes
 local_time = time.localtime()
 while local_time[4] != config.minute:
-	time.sleep(1) # sleeps for 1 second until specified minute
+    time.sleep(1) # sleeps for 1 second until specified minute
+    local_time = time.localtime()
 while local_time[3] != config.hour:
-	time.sleep(60*60) # sleeps for 1 hour until specified hour
+    time.sleep(60*60) # sleeps for 1 hour until specified hour
+    local_time = time.localtime()
+    
 
 # Opens Chrome and the meeting link at a specified time
+print(time.localtime())
+print(local_time)
 driver = webdriver.Chrome()
 while True:
     if config.days.count(local_time[6]) > 0:
