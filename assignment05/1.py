@@ -19,9 +19,25 @@ def fizz_buzz(n: int)-> list(str):
 # Write a function that Converts vowels into upper case character and consonants into lower case character in a given string .
 def vowel_to_upper_cons_to_lower(string: str)-> str:
     #Write your code here
-    return 
+    vowels = "aeiou"
+    newString = ""
+    for x in str:
+        if x in vowels:
+            x.upper()
+            newString += x
+        else:
+            x.lower()
+            newString += x
+    return newString
 
 # Write a function that classifies given list of numbers into Even and Odd Sublists.
 def split_Even_Odd_Sublist(num_array): 
     #Write your code here
+    odd_list = []
+    even_list = []
+    for x in num_array:
+        if x%2==0:
+            even_list.append(x)
+        else:
+            odd_list.append(x)
     return 
