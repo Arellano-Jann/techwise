@@ -70,26 +70,28 @@ def is_prime(num):
             return False
     return True
 
-def find_first_digit(num):
-    while (num < 10):
-        num //= 10
-    return num
+
+def rotate_number(n):
+    #Write your code Here
+    return int(str(n)[1:] + str(n)[0])
+ 
 
 def is_circularprime(num: int) -> bool:
     #Write your code Here
     num_digits = len(str(num))
-    count = num_digits
-    while count > 0:
-        first_digit = find_first_digit(num)
-        new_num = (num*10) + first_digit - (first_digit*10**num_digits)
-        if is_prime(new_num) == False:
+    for x in range(num_digits):
+        if not is_prime(num):
             return False
-        count -= 1
+        num = rotate_number(num)
     return True
 
+
+print("Circular Prime")
 print(is_circularprime(113))
 print(is_circularprime(1193))
-print(is_circularprime(44))
+print(is_circularprime(35))
+print(is_circularprime(2468))
+print(is_circularprime(8864))
 
 
 # In the figure, the following inequalities hold.
