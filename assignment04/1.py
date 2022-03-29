@@ -23,7 +23,7 @@ def reverse_number(n):
 
 def kaprekar_seq(n: int) -> [int]:
     #Write your code here
-    while(true):
+    while True:
       	numbers = [n]
 		first_number = rotate_number(n)
 		second_number = reverse_number(first_number)
@@ -42,5 +42,15 @@ def kaprekar_seq(n: int) -> [int]:
 
 def collatz_sequence(k: int) -> [int]:
     #Write your code here
-    
-    return 
+	numbers = []
+    while True:
+		numbers.append(k)
+		if (k%2==0):
+			k //= 2
+		else if k==1:
+			return numbers
+		else:
+			k *= 3
+			k += 1
+
+    return numbers
