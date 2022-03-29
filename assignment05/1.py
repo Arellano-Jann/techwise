@@ -4,7 +4,17 @@
 
 def fizz_buzz(n: int)-> list(str):
     #Write your code here
-    return 
+    fizzbuzz = []
+    for x in range(1, n):
+        if (x%3==0) and (x%5==0):
+            fizzbuzz.append("FizzBuzz")
+        if (x%3==0):
+            fizzbuzz.append("Fizz")
+        if (x%5==0):
+            fizzbuzz.append("Buzz")
+        else:
+            fizzbuzz.append(x)
+    return fizzbuzz
 
 # Write a function that Converts vowels into upper case character and consonants into lower case character in a given string .
 def vowel_to_upper_cons_to_lower(string: str)-> str:
