@@ -6,18 +6,32 @@
 # Given a suitable starting number generate the sequence, stopping the output without any repetition.
 # For example if 1945 is input it should return  [1945,8082,8532,6174]
 
+def rotate_number(n):
+    n *= 10
+    num_array = str(n)
+    size_of_array = len(num_array)
+    num_array[size_of_array] = num_array[0]
+    num_array = num_array[1:]
+    return int(num_array)
+
+def reverse_number(n):
+    num_array = str(n)
+    # num_array[::-1]
+    num_array.reverse()
+    return int(num_array)
+
+
 def kaprekar_seq(n: int) -> [int]:
     #Write your code here
-    
-    numbers = []
-    first_number = 
-    second_number = 
-    new_number = first_number - second_number
-    if new_number == numbers(len(numbers) - 1):
-		return numbers
-    else:
-        numbers.append(new_number)
-        kaprekar_seq(new_number)  ## might work??
+    while(true):
+      	numbers = [n]
+		first_number = rotate_number(n)
+		second_number = reverse_number(first_number)
+		new_number = first_number - second_number
+		if new_number == numbers(len(numbers) - 1):
+			return numbers
+		else:
+			numbers.append(new_number)
 
 # Start with any number. (For practice try small numbers) say 7
 # if it is even divide by 2, if it is odd multiply by 3 and add 1
