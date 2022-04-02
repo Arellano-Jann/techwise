@@ -6,32 +6,32 @@
 # Given a suitable starting number generate the sequence, stopping the output without any repetition.
 # For example if 1945 is input it should return  [1945,8082,8532,6174]
 
-def rotate_number(n):
-    n *= 10
-    num_array = str(n)
-    size_of_array = len(num_array)
-    num_array[size_of_array] = num_array[0]
-    num_array = num_array[1:]
-    return int(num_array)
+def ascending_order_number(n):
+    num_array = sorted(str(n))
+    new_string = "".join(num_array)
+    return int(new_string)
+
 
 def reverse_number(n):
     num_array = str(n)
-    # num_array[::-1]
-    num_array.reverse()
+    num_array[::-1]
     return int(num_array)
 
 
 def kaprekar_seq(n: int) -> [int]:
     #Write your code here
     while True:
-      	numbers = [n]
-		first_number = rotate_number(n)
-		second_number = reverse_number(first_number)
-		new_number = first_number - second_number
-		if new_number == numbers(len(numbers) - 1):
-			return numbers
-		else:
-			numbers.append(new_number)
+        numbers = [n]
+        first_number = ascending_order_number(n)
+        second_number = reverse_number(first_number)
+        new_number = first_number - second_number
+        if new_number == numbers[-1]:
+            return numbers
+        else:
+            numbers.append(new_number)
+
+
+print(kaprekar_seq(1945))
 
 # Start with any number. (For practice try small numbers) say 7
 # if it is even divide by 2, if it is odd multiply by 3 and add 1
@@ -42,15 +42,16 @@ def kaprekar_seq(n: int) -> [int]:
 
 def collatz_sequence(k: int) -> [int]:
     #Write your code here
-	numbers = []
+    numbers = []
     while True:
-		numbers.append(k)
-		if (k%2==0):
-			k //= 2
-		else if k==1:
-			return numbers
-		else:
-			k *= 3
-			k += 1
-
+        numbers.append(k)
+        if (k%2==0):
+            k //= 2
+        elif k==1:
+            return numbers
+        else:
+            k *= 3
+            k += 1
     return numbers
+
+print(collatz_sequence(7))
