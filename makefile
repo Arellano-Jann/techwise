@@ -1,7 +1,7 @@
 COMPILER = python3
 FLAGS = 
 FILES = 1.py
-DIR = assignment06
+DIR = assignment07
 # FILES = zoombot.py
 # DIR = zoombot
 
