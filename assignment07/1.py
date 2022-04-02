@@ -36,16 +36,19 @@ print(variable_to_camel_case("basic salary in dollar"))
 
 # Convert a variable name from camel case
 
+import re
 
 def camel_case_to_snake_case(camel: str) -> str:
     #Write your code Here
-    final_string = ""
-    for x in camel:
-        if x.isupper():
-            final_string += '_' + x.lower()
-        else:
-            final_string += x
-    return final_string
+    camel = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', camel) #  this is fucking genius. holy shit
+    return re.sub('([a-z0-9])([A-Z])', r'\1_\2', camel).lower()
+    # final_string = ""
+    # for x in camel:
+    #     if x.isupper():
+    #         final_string += '_' + x.lower()
+    #     else:
+    #         final_string += x
+    # return final_string
 
 print(camel_case_to_snake_case("basicSalaryInDollar"))
 print(camel_case_to_snake_case("snakeToCamel"))
