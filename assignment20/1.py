@@ -17,8 +17,8 @@ def count_vowel_and_cons(filename: str)-> (int, int):
     #write your code here
     vowel = "AEIOUaeiou"
     consonant = "BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz"
-    vowel_count = 0
-    consonant_count = 0
+    vowel_count = []
+    consonant_count = []
     f = open(filename, "r")
     for line in f:
         vowel_count += [character for character in line if character in vowel]
@@ -26,7 +26,7 @@ def count_vowel_and_cons(filename: str)-> (int, int):
     f.close()
     return len(vowel_count), len(consonant_count)
     
-print(count_vowel_and_cons("Content.txt"))
+print(count_vowel_and_cons("assignment20/Content.txt"))
 
 
 
@@ -67,9 +67,6 @@ print(count_vowel_and_cons("Content.txt"))
 #     Anshu, 90
 #     Amar, 92
 
-
-
-
 # **Expected Output:**
 
 #     1  Mark           98    
@@ -98,6 +95,14 @@ print(count_vowel_and_cons("Content.txt"))
 # https://drive.google.com/file/d/1dNAPtIZ6McDx9hbXQjPXghjOQ2RoDf9Y/view?usp=sharing
 
 
-def assign_rank(textfile: str) -> str:  
-  #write your code here
-  return
+def assign_rank(textfile):
+    with open(textfile) as file:
+        ranks = [tuple(line.strip().split(", ")) for line in file]
+    ranks.sort(key=lambda x: x[1], reverse=True)
+    print(ranks)
+    for i, marks in enumerate(ranks, 1):
+        while ranks[i-2][1] == marks[1]:
+            i -= 1
+        print(f"{i:3} {marks[0]:10} {marks[1]:>3}")
+    
+assign_rank("assignment20/Marks.txt")
