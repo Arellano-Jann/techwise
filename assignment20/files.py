@@ -96,13 +96,13 @@ print(count_vowel_and_cons("assignment20/Content.txt"))
 
 
 def assign_rank(textfile):
-    with open(textfile) as file:
-        ranks = [tuple(line.strip().split(", ")) for line in file]
-    ranks.sort(key=lambda x: x[1], reverse=True)
+    with open(textfile) as file: # with closes the file after block executes
+        ranks = [tuple(line.strip().split(", ")) for line in file] # list comprehension to strip and split lines
+    ranks.sort(key=lambda x: x[1], reverse=True) # sorts by x[1] in descending order
     print(ranks)
-    for i, marks in enumerate(ranks, 1):
-        while ranks[i-2][1] == marks[1]:
+    for i, person in enumerate(ranks, 1): # enumerate starts counting i from 1. each person is an element in ranks 
+        while ranks[i-2][1] == person[1]: # while previous mark == current mark, keep rank the same
             i -= 1
-        print(f"{i:3} {marks[0]:10} {marks[1]:>3}")
+        print(f"{i:3} {person[0]:10} {person[1]:>3}") # formatting
     
 assign_rank("assignment20/Marks.txt")
