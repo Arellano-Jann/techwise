@@ -14,9 +14,19 @@
     
     
 def count_vowel_and_cons(filename: str)-> (int, int):
-  #write your code here
-  return
+    #write your code here
+    vowel = "AEIOUaeiou"
+    consonant = "BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz"
+    vowel_count = 0
+    consonant_count = 0
+    f = open(filename, "r")
+    for line in f:
+        vowel_count += [character for character in line if character in vowel]
+        consonant_count += [character for character in line if character in consonant]
+    f.close()
+    return len(vowel_count), len(consonant_count)
     
+print(count_vowel_and_cons("Content.txt"))
 
 
 
