@@ -26,3 +26,26 @@ print(is_happy(19)) # true
 print(is_happy(2)) # false 
 
 
+# longest common prefix
+def longest_common_prefix(strs: [str]) -> str:
+    if len(strs) == 1:
+        return strs[0]
+    longest = ""
+    strs.sort(key = len)
+    for index, char in enumerate(strs[0]):
+        # toAdd = True
+        for word in strs[1:]:
+            if word[index] != char:
+                # toAdd = False
+                # break
+                return longest # we return longest here because it's a prefix. we don't care about the rest. 
+                # if we did care about the rest we would add the comments instead
+        longest += char
+        # if toAdd:
+        #     longest += char
+    return longest
+
+print(longest_common_prefix(["flow", "flower", "floor"]))
+
+
+
