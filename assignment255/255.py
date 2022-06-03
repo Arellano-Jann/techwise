@@ -20,5 +20,8 @@ def longest_palindrome(s: str):
             longest = s[start : end+1]
     return longest
     
-print(longest_palindrome("abad"))
-print(longest_palindrome("bb"))
+print(longest_palindrome1line("babad"))
+print(longest_palindrome1line("cbbd"))
+print(longest_palindrome1line("abcd"))
+print(longest_palindrome1line("a"))
+print(longest_palindrome1line("aba"))

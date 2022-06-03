@@ -25,6 +25,9 @@ def is_sec_prime(lst: [int]) -> bool:
     lst.sort()
     return is_prime(lst[-2]) if len(lst) > 2 else is_prime(lst[0]) if len(lst) == 1 else False
 
+def is_sec_prime1line(lst: [int])-> bool:
+    return (all([sorted(list(set(lst)))[-2] % i for i in range(2, sorted(list(set(lst)))[-2])]) if sorted(list(set(lst)))[-2] > 1 else False) if len(sorted(list(set(lst)))) > 1 else False
+
 
 print (is_sec_prime([5,6]))
 print (is_sec_prime([5,8]))
