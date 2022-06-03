@@ -67,7 +67,32 @@ def length_longest_substring(s: str) -> int:
         current_substring = "" + i
       else:
         current_substring = ""
-    return longest
+    return len(current_substring) if len(current_substring) > len(longest) else len(longest)
 
 print(length_longest_substring("pwwkew"))
 print(length_longest_substring("bbb"))
+print(length_longest_substring("a"))
+print(length_longest_substring(""))
+print(length_longest_substring("  "))
+print(length_longest_substring("abc abcbb "))
+print()
+
+def length2(s):
+    longs = []
+    if len(s) == 0:
+        return 0
+    for i in range(len(s)):
+        substring = s[i]
+        j = i+1
+        while j <= len(s)-1 and s[j] not in substring:
+            substring += s[j]
+            j += 1
+        longs.append(len(substring))
+    return max(longs)
+
+print(length2("pwwkew"))
+print(length2("bbb"))
+print(length2("a"))
+print(length2(""))
+print(length2("  "))
+print(length2("abc abcbb "))
