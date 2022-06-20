@@ -1,13 +1,14 @@
 import time
-import schedule
 import config
-from selenium import webdriver # https://askubuntu.com/questions/870530/how-to-install-geckodriver-in-ubuntu
+from selenium import webdriver  # https://askubuntu.com/questions/870530/how-to-install-geckodriver-in-ubuntu
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver import FirefoxOptions
 from selenium.webdriver.common.by import By
+import schedule
 
 
 def zoom_meeting():
+    print("Starting the execution...")
     opts = FirefoxOptions() # headless option
     opts.add_argument("--headless") # we run headless because it wont run in wsl without this because of that lack of display. you can inspect this more by going to the geckodriver.log 
     driver = webdriver.Firefox(options=opts)
@@ -42,6 +43,7 @@ def zoom_meeting():
     time.sleep(10)
 
 
+
     # Checks if name is valid
     name_box = driver.find_element(By.ID, "inputname")
     if name_box.get_attribute('value') == '':
@@ -66,7 +68,7 @@ def zoom_meeting():
 
 
 
-    # check here if meeting not started or waiting room
+    # check here if meeting not started or waiting room. think it's both bc how it searches for multi-view
     # this is not searching for text "the meeting has not started" because it's in the source for the video chat
     count = 0
     while not driver.find_element(By.ID, "multi-view-video").is_displayed() and count < 100: # checks for video display
@@ -88,10 +90,10 @@ def zoom_meeting():
     print("Successfully exited the meeting. The Zoom user will ghost for 3 minutes.")
 
 
-
-schedule.every().monday.at(hour).do(zoom_meeting)
-schedule.every().wednesday.at(hour).do(zoom_meeting)
-schedule.every().friday.at(hour).do(zoom_meeting)
+# Scheduler runs on local time.
+schedule.every().monday.at(config.hour).do(zoom_meeting)
+schedule.every().wednesday.at(config.hour).do(zoom_meeting)
+schedule.every().friday.at(config.hour).do(zoom_meeting)
 
 while True:
     schedule.run_pending()

@@ -1,13 +1,11 @@
 Browser ZoomBot from WSL.
 
 To add:
-case for meeting in the waiting room
-infinite loop for joining
+aws ec2 instance for deploy
 
 multiple classes. upsizing - for each loop on all meeting links
 recording using obs
 joining audio
-function case - needs to uncheck the techwise log in - do a timeout if there is no element in the page. 
 
 
 ### Dependencies:
