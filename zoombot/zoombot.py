@@ -1,6 +1,6 @@
 import time
 import config
-from selenium import webdriver  # https://askubuntu.com/questions/870530/how-to-install-geckodriver-in-ubuntu
+from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver import FirefoxOptions
 from selenium.webdriver.common.by import By
