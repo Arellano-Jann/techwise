@@ -2,6 +2,7 @@ Browser ZoomBot from WSL.
 
 To add:
 case for meeting in the waiting room
+infinite loop for joining
 
 multiple classes. upsizing - for each loop on all meeting links
 recording using obs
@@ -13,6 +14,7 @@ function case - needs to uncheck the techwise log in - do a timeout if there is 
 1. FireFox 101.0.1 - sudo apt-get install firefox
 2. WSL2 - also compatible with WSL1
 3. Selenium 4.0 - pip install selenium
+4. Schedule - pip install schedule
 4. GeckoDriver v31.0 - sudo apt install firefox-geckodriver
 - Method 2 for Gecko Driver
 - https://askubuntu.com/questions/870530/how-to-install-geckodriver-in-ubuntu
