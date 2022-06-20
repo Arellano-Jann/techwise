@@ -1,8 +1,6 @@
 Browser ZoomBot from WSL.
 
 To add:
-Case for meeting not started
-case for meeting not started and timed out #times out at 10 minutes
 case for meeting in the waiting room
 
 multiple classes. upsizing - for each loop on all meeting links
