@@ -20,14 +20,13 @@ from selenium.webdriver.common.by import By
 # print(time.localtime())
 # print(local_time)
 opts = FirefoxOptions() # headless option
-opts.add_argument("--headless")
+opts.add_argument("--headless") # we run headless because it wont run in wsl without this because of that lack of display. you can inspect this more by going to the geckodriver.log 
 driver = webdriver.Firefox(options=opts)
 # while True:
 #     if config.days.count(local_time[6]) > 0: ## tf does this do again?
 #         break
 #     else:
 #         time.sleep(60*60*24) # sleeps for 1 day
-# driver.get("https://google.com") # test case
 driver.get(config.meeting_link)
 print("Launched meeting link:", config.meeting_link)
 time.sleep(5)
@@ -72,7 +71,7 @@ time.sleep(5)
 # # # # Link Text
 browser_join = driver.find_element(By.LINK_TEXT, "Join from Your Browser")
 browser_join.send_keys(Keys.RETURN)
-print('Clicked "Join from Browser" and loading in')
+print('Clicked "Join from Browser" and loading in...')
 time.sleep(10)
 
 
@@ -80,7 +79,7 @@ time.sleep(10)
 name_box = driver.find_element(By.ID, "inputname")
 if name_box.get_attribute('value') == '':
     name_box.send_keys(config.nameTag)
-    print('Inputted:', config.nameTag)
+    print('Name inputted as:', config.nameTag)
 else:
     print("Name in box is:", name_box.get_attribute('value'))
 
@@ -106,12 +105,12 @@ current_time = time.monotonic()
 print("Current time is:", current_time)
 print("Sleeping for:", config.time_in_meeting)
 time.sleep(config.time_in_meeting)
-while not ( (current_time+config.time_in_meeting) < (time.monotonic()-10) ): # checks if current time (right) is more than the scheduled time in meeting
+while not ( (current_time+config.time_in_meeting) < (time.monotonic()-10) ): # checks if current time (right side) is more than the scheduled time in meeting
+    print("Current time is:", time.monotonic(), "and sleeping for 20 sec...")
     time.sleep(20) # waits until top is finished
-    print("Current time is:", time.monotonic(), " and sleeping for 20 sec")
-print("Exiting meeting")
-driver.quit() # quits the browser
-print("Successfully exited the meeting")
+print("Current time is:", time.monotonic(), "and exiting meeting now...")
+driver.quit() # quits all web browsers
+print("Successfully exited the meeting. The Zoom user will ghost for 3 minutes.")
 
 
 
